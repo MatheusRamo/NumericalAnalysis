@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdbool.h>
+#include <math.h>
 
 float f(float x)
 {
-	return x * x * x - x - 2;
+	return x * x - 3;
 }
 
 bool check_signal(float a, float b)
@@ -29,7 +30,7 @@ float bisection_method(float a, float b, float tol, int nmax)
 		float c;
 		int n = 1;
 
-		while (n <= nmax)
+		while (n <= nmax || (b-a) >= tol)
 		{
 			c = (a + b) / 2;
 			if ((((b - a) / 2) < tol))
